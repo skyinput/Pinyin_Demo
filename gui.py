@@ -236,38 +236,48 @@ def on_esc(event):
     E1.delete(0, END)
 
 root = Tk()
-root.title("SkyInput——We are little fairy")
+root.title("SkyInput——We are little fairies")
 root.resizable(0,0)
 root.iconbitmap('skyinput.ico')
 
-frame1 = Frame(root,width=480,height=50)
+frame0 = Frame(root,width=480,height=50)
+frame0.pack_propagate(0)
+frame0.pack()
+
+
+frame1 = Frame(frame0,width=400,height=50)
 frame1.pack_propagate(0)
-frame1.pack()
+frame1.pack(side=LEFT)
 
-framego = Frame(root,width=480,height=480)
-framego.pack_propagate(0)
-framego.pack()
 
-frame2 = Frame(framego,width=240,height=480)
+frame2 = Frame(root,width=480,height=180)
 frame2.pack_propagate(0)
-frame2.pack(side=LEFT)
+frame2.pack()
 
-frame3 = Frame(framego,width=240,height=480)
+frame3 = Frame(root,width=480,height=300)
 frame3.pack_propagate(0)
-frame3.pack(side=RIGHT)
+frame3.pack()
+
+frameB = Frame(frame0,width=80,height=50)
+frameB.pack_propagate(0)
+frameB.pack(side=RIGHT)
 
 
 L1 = Label(frame1,text="SkyInput", fg = 'Chocolate')
-L1.pack(side=LEFT)
+L1.pack(side=TOP)
 
-E1 = Entry(frame1,width=64,font=tkFont.Font(size=25,weight='bold'))
-E1.pack(side=RIGHT,expand=True)
+E1 = Entry(frame1,width=10,font=tkFont.Font(size=20,weight='bold'))
+E1.pack(side=LEFT,expand=True)
 E1.focus_set()
-T1 = Text(frame2,height=480,wrap='word',fg = 'Chocolate',font=tkFont.Font(size=30,weight='bold'))
+T1 = Text(frame2,height=480,wrap='word',fg = 'Chocolate',font=tkFont.Font(size=25,weight='bold'))
 T1.pack(expand=True)
 T2 = Text(frame3,height=480,wrap='word',font=tkFont.Font(size=20))
 T2.pack(expand=True)
 
+Bup = Button(frameB , text='up', command = clikpageup)
+Bup.pack(side=TOP,expand=True)
+Bdown = Button(frameB,text='down', command = clikpagedown)
+Bup.pack(side=BOTTOM,expand=True)
 E1.bind("<KeyRelease>",on_press)
 root.bind("<Alt-d>",on_alt_d)
 root.bind("<Escape>",on_esc)
