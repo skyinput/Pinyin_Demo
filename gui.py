@@ -158,7 +158,7 @@ def on_press(event):
         if (event.keycode - 96) in range(1, current_page_size+ 1):
             T2.insert(END, candidate[page_index * PAGE_SIZE +(event.keycode - 97)][0])  
              #zhao到最后一个拼音的位置
-            choesen_list = candidate[page_index * PAGE_SIZE +(event.keycode - 49)][2]
+            choesen_list = candidate[page_index * PAGE_SIZE +(event.keycode - 97)][2]
             last_pinyin_index = 0
             for pin in choesen_list:
                 last_pinyin_index = word.find(pin, last_pinyin_index)
@@ -181,7 +181,7 @@ def on_press(event):
         if len(candidate):
             T2.insert(END, candidate[page_index * PAGE_SIZE][0])  
              #zhao到最后一个拼音的位置
-            choesen_list = candidate[page_index * PAGE_SIZE +(event.keycode - 49)][2]
+            choesen_list = candidate[page_index * PAGE_SIZE][2]
             last_pinyin_index = 0
             for pin in choesen_list:
                 last_pinyin_index = word.find(pin, last_pinyin_index)
