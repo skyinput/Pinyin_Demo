@@ -24,22 +24,22 @@ def viterbi(pinyin_list):
             result = Transition.join_emission(pinyin, character)
             if not result:
                 continue
-
             state, new_prob = result
             prob_map[phrase + state] = new_prob + prob
 
         if prob_map:
             V = prob_map
         else:
-            return V
-    return V
+            return V, i
+    return V, len(pinyin_list)
 
 
 if __name__ == '__main__':
     while 1:
         string = raw_input('input:')
         pinyin_list = string.split()
-        V = viterbi(pinyin_list)
-
+        V, l = viterbi(pinyin_list)
+        print pinyin_list
+        print l
         for phrase, prob in sorted(V.items(), key=lambda d: d[1], reverse=True):
             print phrase, prob
